@@ -6,7 +6,6 @@ School Directory est l'interface Frontend d'une application de gestion et de ré
 
 Développée avec Next.js 14 (App Router) et TypeScript, cette application propose une interface moderne, responsive et optimisée pour une expérience utilisateur fluide.
 
-![Capture d'écran de l'application](/path/to/screenshot.png)
 
 ### Fonctionnalités principales :
 
