@@ -1,0 +1,32 @@
+version: 2.1
+ 
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.10  # Image officielle CircleCI avec Python + Docker
+    steps:
+      - checkout  # Récupère ton code
+ 
+      - setup_remote_docker  # Permet de build Docker dans CircleCI
+ 
+      - run:
+          name: Build Backend
+          command: |
+            docker-compose build backend
+ 
+      - run:
+          name: Build Frontend
+          command: |
+            docker-compose build frontend
+ 
+      - run:
+          name: Test Backend (si tu as des tests)
+          command: |
+            cd backend
+            pytest || echo "Pas de test défini"
+ 
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build

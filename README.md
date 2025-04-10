@@ -43,6 +43,7 @@ Routes disponibles :
 | GET     | `/donnees/{index}` | Obtenir un lycée par son index |
 | GET     | `/donnees/by_name/{nom}` | Rechercher un lycée par son nom |
 | GET     | `/donnees_filtrees?region=NomRegion` | Filtrer les lycées par région |
+| GET     | `/donnees/id/{lycee_id}` | Recuperer les informations d'un lycée par son ID |
 | POST    | `/reload_csv` | Recharger les données depuis le CSV vers MongoDB |
 
 ---
