@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0.13
+    container_name: mongo
+    ports:
+      - "27017:27017"
+
+  fastapi:
+    build: ./TP-DOCKER-GROUP/backend
+    container_name: fastapi
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongo
+    volumes:
+      - ./TP-DOCKER-GROUP/backend:/app
+
+  frontend:
+    build: ./TP-DOCKER-GROUP-FRONTEND/
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://fastapi:8000
+    depends_on:
+      - fastapi
+    # volumes:
+    #   - ./TP-DOCKER-GROUP-FRONTEND:/app
+    #   - /app/node_modules
